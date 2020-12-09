@@ -1,0 +1,207 @@
+body {
+    margin:0;
+    font-family: "メイリオ";
+    background-image: url(画像.jpg);
+    /*background-color:rgb(250, 242, 229);*/
+}
+
+header{
+    line-height:20px;
+    width: 100%;
+    background-color:#333333;
+    position:fixed;
+    top:0px;
+    z-index:10;
+}
+
+
+
+.menubar {
+      float:right;
+	text-align: center;		/*文字をセンタリング*/
+	font-size: 24px;		/*文字サイズ*/
+    padding:0px 20px;
+    
+}
+
+.menubar li {
+    display: inline-block;	
+    color:white;
+}
+.menubar li a {
+    text-decoration: none;
+    color: white;
+  padding: 10px 20px;	/*各メニュー内の余白。上下に15px、左右に30pxあけるという意味。*/
+  /*transition:all 0.5s;*/
+}
+/*マウスオン時の設定*/
+.menubar li a:hover {
+	color: white;	/*文字色*/
+	border-bottom: 5px solid  white;	/*下線の幅、線種、色*/
+}
+  
+.mainlogo {
+        float:left;
+      text-align: center;		/*文字をセンタリング*/
+      font-size: 24px;		/*文字サイズ*/
+      padding:0px 20px;
+}
+  
+.mainlogo li {
+      display: inline-block;	
+      color:white;
+}
+
+.mainlogo li a {
+      text-decoration: none;
+      color: white;
+    padding: 10px 20px;	}
+
+  
+.top {
+    background-image: url("uenogazou.jpg");
+    background-size:cover;
+    /*background-repeat: no-repeat;*/
+    height: 40vh;
+    /*width:100%;*/
+    padding:10px 0px;
+    /*position:relative;*/
+}
+  
+
+.container{
+    padding: 0px 15px;
+    margin: 0 auto; 
+   
+    /* 画面幅の50%の幅で画像を表示 */
+
+    /*position: absolute;*/
+}
+
+
+
+.container h1 {
+    text-align: center;
+    color:#FFFFFF;
+    font-size: 48px;
+    padding: 40px 40px 0px 40px;
+    opacity:1;
+    letter-spacing:5px;
+}
+
+  
+.container h2 {
+    text-align: center;
+    color:#FFFFFF;
+    font-size: 30px;
+    padding: 0px 40px 20px 40px;
+    opacity:1;
+    letter-spacing:5px;
+    
+}
+  /*
+.main-img{ 
+    max-width: 100%;
+    height: auto;
+}
+  */
+.section-title {
+    line-height:50px;
+    color:black;
+    background-color:#FF9966/*#79A1D4*/ ;/*#FC9D9D*/
+    margin-bottom: 25px;
+    font-size: 28px;
+	color: #fff;		
+	padding: 0px 80px;	
+	
+}
+
+.section-subtitle{
+    border: 2px dashed #ffd900;
+    border-left: 10px solid  #ffd900;
+    font-size :24px;
+    padding:5px 35px;
+    margin:30px 10px 10px 10px;
+}
+
+.section-contents{
+    /*margin:0px 230px;*/
+    background-color: white;
+    width:896px;
+    margin:0 auto;
+    padding:5px 0px 15px 0px;
+}
+
+
+
+
+.section-contents p{
+    color:black;
+    font-size :24px;
+    padding: 0px 40px
+    
+}
+
+.section-contents ul{
+    padding:0px 40px 0px 70px;
+}
+.section-contents li{
+    color:black;
+    font-size :24px;
+}
+
+
+
+.bold{
+    font-weight:bold;
+}
+
+.kadai{
+    color:rgb(91, 155, 213);
+}
+
+.hurikaeri{
+    color:rgb(112, 173, 71);
+}
+/*---------------------next-page---------------------*/
+.next{ 
+    font-size: 26px;
+}
+.btn  {
+    margin: 0px 40px;
+    padding: 9px 12px;
+    font-weight: bold;
+    cursor :pointer;
+    background-color:#239b76;
+    color:white;
+    border-radius:7px;
+    
+}
+.next a {
+    text-decoration: none;
+  }
+  
+.btn:hover {
+    background-color: #03704f;	
+    
+}
+    
+/*---------------------footer---------------------*/
+.footer {
+    background-color:#5B5B5B;
+    color: #fff;
+    height: 80px;
+    text-align: center;
+    padding:10px 20px 0px 20px;
+}
+  
+.footer-logo {
+    float: left;
+    font-size: 20px;
+}
+  
+  
+.footer-logo li {
+    list-style: none;
+}
+
