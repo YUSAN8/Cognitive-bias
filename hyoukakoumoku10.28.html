@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>克服！認知バイアス</title>
-    <link rel="stylesheet" href="2020.10.21.css">
-  </head>
-  <body>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="2020.10.21.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
     <header> 
-        <div class="menubar">
-           <ul>
-            <li>克服！認知バイアス</li>
-           </ul>
-        </div>
-    </header>
+      <div class="menubar">
+         <ul>
+          <li>克服！認知バイアス</li>
+         </ul>
+      </div>
 
-    <div class="top"></div>
+  </header>
+
+  <div class="top"></div>
 
     
  <div class="section-title">評価項目の部</div>
@@ -23,81 +23,389 @@
 <div class="section-contents">
     <p>前半の課題対応で考えた対策および、あなたの普段の行動に対して評価を行います！これにより、現時点で認知バイアスをどの程度克服できているか評価します。</p>
     <p>「はい」か「いいえ」で答えてください。</p>
-    <p>下のリンクをクリックし、進めましょう！</p>
+   <!-- <p>下のリンクをクリックし、進めましょう！</p>
     <p><a href="https://forms.gle/rdnSxJxFcKo46oGX8">認知バイアス　評価項目</a></p>
-    <!-------------------課題解説------------------->
-    <!--<div class="section-subtitle"><span class='bold'>今回のワークショップについて</span></div>
-    <p>1. 認知バイアスについて理解できた/すでに認知バイアスの知識を持っていた。</p>
-    <div align="center"><input type="radio" name="btn1" value="ボタン１">はい</div>
-    
-        <p>そのため、<span class='bold'>「まさか自分が被害に合うはずがない」</span>と災害に対して準備を甘んじてしまう方が出てくる可能性があります。これを<span class='bold'>「楽観性バイアス」</span>と言います。</p>
-        
-            <!--<br>与えられた課題に対して<span class='bold'>自主防災会がとる行動</span>を話し合い、具体的に決めてください。</p>-->
-    <!--<p>住民は、火山災害（富士山噴火）の<span class='bold'>正しい知識</span>を得て、<span class='bold'>正しく恐れる</span>ことが必要です。自主防災組織においては、</p>
-    <!--<p>課題対応終了後には、自主防災会の活動を住民に向けて情報発信する状況を想定して、会長役が3分間でプレゼンを行います。スケッチブックを使って発表する場合は、制限時間内に記入を進めてください。</p>-->
-    <!--<ul>
-        <li>火山災害に関する定期的な勉強会の開催</li>
-        <li>参加が難しい家庭に、回覧板などで火山災害についての情報発信</li>
-        <li>防災訓練などで、避難行動の反復予行練習(津波てんでんこの例) </li>
-        <li>楽観バイアスを住民に認知させる（自主防災会や回覧板などで）</li>
-    </ul>
-    <p>ことなどが挙げられます。</p>
 
-   <!-- <div class="figure">
-      <div align="center">
-        <img src="課題1.png">
+   <!--ここからチェックボックス！シンプルなチェックボックス！-->
+   <div class="section-subtitle">
+    <span class="bold">単一行動バイアス克服度チェック</span>
+</div>
+    <SCRIPT language="JavaScript">
+      
+        function calc_total(){
+          score = 0;
+          for (i=0; i<9; i++){
+           if (document.myform.elements[i].checked){
+              score += eval(document.myform.elements[i].value);
+              
+            }
+          }
+          document.myform.goukei.value = score + "点";
+          
+        }
+                
+              
+        function calc_total1(){
+          score1= 0;
+          for (i=9; i<17; i++){
+            if (document.myform.elements[i].checked){
+              score1 += eval(document.myform.elements[i].value);
+              
+            }
+          }
+          document.myform.goukei1.value = score1 + "点";
+        }
+                
+               
+        function calc_total2(){
+          score2= 0;
+          for (i=17; i<25; i++){
+            if (document.myform.elements[i].checked){
+              score2 += eval(document.myform.elements[i].value);
+            }
+          }
+          document.myform.goukei2.value = score2 + "点";
+        }
+        
+        function calc_total3(){
+          score3= 0;
+          for (i=25; i<35; i++){
+            if (document.myform.elements[i].checked){
+              score3 += eval(document.myform.elements[i].value);
+            }
+          }
+         document.myform.goukei3.value = score3 + "点";
+        }
+        
+        
+        
+              </SCRIPT>
+        
+<title>Chart.js レーダーチャート</title>
+<style>
+    h1       { font-size:  200%; color: black;  text-align: center }
+    table, td, th {border: 1px silver solid; border-collapse: collapse;}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+
+</head>
+
+<body onLoad = "fillData()">
+    
+    <form name="myform">
+        <tr><td>
+      <p>Q1-1. あなたは、課題１についての対策を複数挙げることができましたか？</p>
+      
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch1" value="25" onClick="calc_total()" />
+          <label for="a_ch1">はい</label>
+          <input type="checkbox" id="a_ch2" value="0" onClick="calc_total()"/>
+          <label for="a_ch2">いいえ</label>
+          
+        </div>
       </div>
       
-    </div>-->
-    
-
-<!--<div class="section-subtitle"><span class='bold'>普段の生活について</span></div>
-<p>富士山は３００年以上も噴火してないため、噴火を経験した当時の人々が<span class='bold'><br>どのような感情を抱いたかを知ること</span>は困難です。</p>
-<p>歴史上の噴火を認知していても、感情が色褪せてしまうと、災害対策に対する意気込みや態度も薄れてしまう可能性があります。</p>
-<p>富士山噴火に限らず、日本・世界の噴火事例から学ぶことが大切です。</p>
-<p>自主防災会においては、</p>
-
-<ul>
-    <li>近年の火山噴火事例から噴火当時の映像を視聴し、火山災害のリアルを感じる</li>
-    <li>自主防災会などで、噴火をご経験されている方を呼び、実際の体験談を語っていただく機会を設ける。</li>
-</ul>
-  <!--<div class="video">
-     <video controls> --><!--autoplay-->
-      <!--<source src="課題対応.mp4" type="video/mp4">
-     </video><br>
-  </div>-->
-
-   
-  <!--<div class="hidden_box">
-    <label for="label1">▼次へ</label>
-    <div><p></p></div>
-    <input type="checkbox" id="label1"/>
-    <div class="hidden_show">-->
-      <!--非表示ここから-->    
-      <!-------------------発表------------------->
-    <!--<div class="section-subtitle">プレゼンタイム</div>
-        <p>
-            次に、課題対応で決定した内容を発表しましょう。</p>
-            <p>自主防災会の活動を住民に向けて情報発信する状況を想定して、会長役の方がプレゼンしてください。<br><span class='bold'>制限時間は3分</span>です。3分間で4問全ての内容を発表してください。</p>
-          <p>複数のグループがいる場合は、話し合いやじゃんけんで発表の順番を決めてください。</p>
-          <p><span class='bold'>準備ができたら下のビデオ（タイマー）を再生し、発表を始めてください。</span></p>
-      <div class="video">-->
-       <!-- <video controls>--> <!--autoplay-->
-           <!--<source src="timer-v.mp4" type="video/mp4">
-         </video></div>-->
-         <!--<p>全てのグループのプレゼンが終わったら次に進みましょう。</p> 
-         <div class="next"><a class="btn" href="20200109_kaisetu.html">▶解説へ</a>
-          <div><p></p></div></div>
+      <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch3" value="25" onClick="calc_total()" />
+          <label for="a_ch3">はい</label>
+          <input type="checkbox" id="a_ch4" value="0" onClick="calc_total()" />
+          <label for="a_ch4">いいえ</label>
+          
+        </div>
       </div>
-</div></div>
+      
+      <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch5" value="25" onClick="calc_total()"/>
+          <label for="a_ch5">はい</label>
+          <input type="checkbox" id="a_ch6" value="0" onClick="calc_total()"/>
+          <label for="a_ch6">いいえ</label>
+          
+        </div>
+      </div>
+      
+      <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch7" value="25" onClick="calc_total()"/>
+          <label for="a_ch7">はい</label>
+          <input type="checkbox" id="a_ch8" value="0" onClick="calc_total()"/>
+          <label for="a_ch8">いいえ</label>
+          
+        </div>
+      </div>
 
- 
+      <h3><class color="red">得点</class>：
+        <input type="text" name="goukei"></h3>
+
+
+
+        <div class="section-subtitle">
+          <span class="bold">確証バイアス克服度チェック</span>
+      </div>
+      
+      <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch9" value="25" onClick="calc_total1()" />
+          <label for="a_ch9">はい</label>
+          <input type="checkbox" id="a_ch10" value="0" onClick="calc_total1()"/>
+          <label for="a_ch10">いいえ</label>
+          
+        </div>
+      </div>
+      
+      <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch11"  value="25" onClick="calc_total1()"/>
+          <label for="a_ch11">はい</label>
+          <input type="checkbox" id="a_ch12" value="0" onClick="calc_total1()" />
+          <label for="a_ch12">いいえ</label>
+          
+        </div>
+      </div>
+      
+      <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch13" value="25" onClick="calc_total1()"/>
+          <label for="a_ch13">はい</label>
+          <input type="checkbox" id="a_ch14" value="0" onClick="calc_total1()"/>
+          <label for="a_ch14">いいえ</label>
+          
+        </div>
+        <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch15" value="25" onClick="calc_total1()"/>
+          <label for="a_ch15">はい</label>
+          <input type="checkbox" id="a_ch16" value="0" onClick="calc_total1()" />
+          <label for="a_ch16">いいえ</label>
+          
+        </div>
+
+        <h3><class color="red">得点</class>：
+          <input type="text" name="goukei1"></h3>
+      
+
+        <div class="section-subtitle">
+          <span class="bold">近視眼的思考バイアス克服度チェック</span>
+      </div>
+      
+        
+        <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch17" value="25" onClick="calc_total2()"/>
+          <label for="a_ch17">はい</label>
+          <input type="checkbox" id="a_ch18" value="0" onClick="calc_total2()"/>
+          <label for="a_ch18">いいえ</label>
+          
+        </div>
+        <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch19" value="25" onClick="calc_total2()"/>
+          <label for="a_ch19">はい</label>
+          <input type="checkbox" id="a_ch20" value="0" onClick="calc_total2()"/>
+          <label for="a_ch20">いいえ</label>
+          
+        </div>
+        <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch21" value="25" onClick="calc_total2()"/>
+          <label for="a_ch21">はい</label>
+          <input type="checkbox" id="a_ch22" value="0" onClick="calc_total2()"/>
+          <label for="a_ch22">いいえ</label>
+          
+        </div>
+        <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch23" value="25" onClick="calc_total2()"/>
+          <label for="a_ch23">はい</label>
+          <input type="checkbox" id="a_ch24" value="0" onClick="calc_total2()"/>
+          <label for="a_ch24">いいえ</label>
+          
+        </div>
+
+        <h3><class color="red">得点</class>：
+          <input type="text" name="goukei2"></h3>
+
+        <div class="section-subtitle">
+          <span class="bold">正常性バイアス克服度チェック</span>
+      </div>
+        <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch25" value="25" onClick="calc_total3()"/>
+          <label for="a_ch25">はい</label>
+          <input type="checkbox" id="a_ch26" value="0" onClick="calc_total3()"/>
+          <label for="a_ch26">いいえ</label>
+          
+        </div>
+        <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch27" value="25" onClick="calc_total3()"/>
+          <label for="a_ch27">はい</label>
+          <input type="checkbox" id="a_ch28" value="0" onClick="calc_total3()" />
+          <label for="a_ch28">いいえ</label>
+          
+        </div>
+        <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch29" value="25" onClick="calc_total3()"/>
+          <label for="a_ch29">はい</label>
+          <input type="checkbox" id="a_ch30" value="0" onClick="calc_total3()"/>
+          <label for="a_ch30">いいえ</label>
+          
+        </div>
+        <p>Q1-2.あなたは、「楽観性バイアス」がどのようなものか人に説明することができますか？</p>
+      <div class="cp_ipcheck">
+        <div class="box">
+          <input type="checkbox" id="a_ch31" value="25" onClick="calc_total3()"/>
+          <label for="a_ch31">はい</label>
+          <input type="checkbox" id="a_ch32" value="0" onClick="calc_total3()"/>
+          <label for="a_ch32">いいえ</label>
+          
+        </div>
+      </div>
+
+      <h3><class color="red">得点</class>：
+        <input type="text" name="goukei3"></h3>
+
+     
+      
+    </td></tr>
+  </table>
+  </form>
+  <div class="section-subtitle">
+    <span class="bold">レーダーチャート</span>
 </div>
 
-  <div class="footer">
-      <div class="footer-logo"><ul>
-        <li>慶應義塾大学理工学部　システムデザイン工学科　小檜山研究室</li>
-      </ul></div>
-    </div>
-  </body>
+  <h3>入力フォーム</h3>
+  <form name="input">
+  <table><tbody>
+  <tr>
+  <td><input type="text" size="18" value="単一行動バイアス"></td>
+  <td><input type="text" size="18" value="確証バイアス"></td>
+  <td><input type="text" size="18" value="近視眼的思考バイアス"></td>
+  <td><input type="text" size="18" value="正常性バイアス"></td>
+  
+  </tr></tr>
+  <tr><td><input type="text" size="18" value=""></td></td>
+  <td><input type="text" size="18" value=""></td>
+  <td><input type="text" size="18" value=""></td>
+  <td><input type="text" size="18" value=""></td>
+  <!--<td><input type="text" size="18" value=""></td>-->
+  <!--<td><input type="text" size="13" value=""></td>-->
+  </tbody></table>
+  <input type="button" value="実行" onclick="fillData()">
+  </form>
+  
+
+<!--<h1>Chart.js フォームからデータを読込みレーダーチャートを表示</h1>-->
+
+
+<div  style="float: left">
+<canvas id="myChart" width="500" height="500"></canvas>
+</div>
+
+
+
+<script>
+function fillData() {
+
+  // ========= フォーム読込 ===========
+
+  var theme = [];//テーマ
+
+  for (var j=0; j<4; j++) {
+    theme[j] = document.input.elements[j].value;
+  }
+
+  var data = [];
+
+  for (j=0; j<4; j++) {
+    data[j] = document.input.elements[4+j].value;//4+は入力フォームの上から5番目だから上のものを足している！
+  }
+
+  // ======== 系列別固定パラメータ
+  var lineColor = "rgba(255,204,0,1)";
+  var mainColor = "rgba(255,204,0,0.4)";
+
+  // ======================= レーダーチャート表示 ====================
+  
+  var ctx = document.getElementById("myChart")
+ 
+  var myChart = new Chart(ctx, {
+    type: "radar",    // グラフの種類　レーダーチャート
+    data: {
+      labels:  theme,  // 軸のラベル
+
+      // ========= 各系列個別 ===========
+      datasets: [
+        {
+          label: ["認知バイアス克服度"],
+          data: data,
+          backgroundColor: mainColor,             // 線の下の塗りつぶしの色
+          borderColor: lineColor,                 // 線の色
+          pointBorderColor: lineColor,            // 点の境界線の色
+          pointBackgroundColor: lineColor,        // 点の塗りつぶし色
+          borderWidth: 2,                       // 線の幅
+          pointStyle: "circle",                 // 点の形状
+          pointRadius: 2,                       // 点形状の半径
+          pointBorderWidth: 2,                  // 点の境界線の幅
+        }
+      ]
+    },
+
+    // ========= 全系列共通（これらは全て固定） ==========
+    options: {
+      responsive: false,
+      title: {                 // タイトル
+        display: true,
+        fontSize: 18,
+        text: "レーダーチャート"
+      },
+      legend: {
+          position: 'bottom'   // 凡例の表示位置
+      },
+      scale: {
+        pointLabels: {       // 軸のラベル（"国語"など）
+          fontSize: 12,         // 文字の大きさ
+          fontColor: "black"    // 文字の色
+        },
+        ticks: {             // 目盛り
+          min: 0,              // 最小値
+          max: 100,            // 最大値
+          stepSize: 25,        // 目盛の間隔
+          fontSize: 10,        // 目盛り数字の大きさ
+          fontColor: "black"  // 目盛り数字の色
+        },
+        angleLines: {        // 軸（放射軸）
+          display: true,
+          color: "gray"
+        },
+        gridLines: {         // 補助線（目盛の線）
+          display: true,
+          color: "gray"
+          }
+        }
+      }
+  });
+}
+</script>
+</div>
+
+</body>
 </html>
