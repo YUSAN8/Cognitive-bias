@@ -1,4 +1,4 @@
-body {
+¥body {
     margin:0;
     font-family: "メイリオ";
     background-image: url(画像.jpg);
@@ -205,3 +205,64 @@ header{
     list-style: none;
 }
 
+/*ここからチェックボックスのCSS*/
+.cp_ipcheck {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.cp_ipcheck:before, .cp_ipcheck:after {
+	-webkit-box-sizing: inherit;
+	        box-sizing: inherit;
+}
+.cp_ipcheck .box {
+	width: 90%;
+	margin: 2em auto;
+	text-align: left;
+	border: 1px solid white;
+	border-radius: 3px;
+    background: #ffffff;
+}
+.cp_ipcheck input[type=checkbox] {
+	display: none;
+}
+.cp_ipcheck label:focus,
+.cp_ipcheck label:hover,
+.cp_ipcheck label:active,
+.cp_ipcheck input:checked + label {
+	color: #da3c41;
+}
+.cp_ipcheck label:focus:before,
+.cp_ipcheck label:hover:before,
+.cp_ipcheck label:active:before,
+.cp_ipcheck input:checked + label:before {
+	border-color: #da3c41;
+	background: #ffffff;
+}
+.cp_ipcheck label {
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 1;
+	position: relative;
+	display: block;
+	overflow: hidden;
+	padding: 1em 1em 1em 3em;
+	cursor: pointer;
+	-webkit-transition: all 0.15s ease;
+	        transition: all 0.15s ease;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	background: #ffffff;
+}
+.cp_ipcheck label:before {
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	width: 10px;
+	height: 10px;
+	content: '';
+	border: 0.2em solid #cccccc;
+}
+.cp_ipcheck input:checked + label:before {
+	border-color: #da3c41;
+	background: #da3c41;
+}
