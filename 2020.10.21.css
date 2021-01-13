@@ -1,4 +1,4 @@
-¥body {
+body {
     margin:0;
     font-family: "メイリオ";
     background-image: url(画像.jpg);
@@ -266,3 +266,10 @@ header{
 	border-color: #da3c41;
 	background: #da3c41;
 }
+
+.button{
+    height:40px;
+    width:100px;
+    font-size:17px;
+    font-weight:bold;
+    }
